@@ -1,0 +1,24 @@
+:root{
+ 
+}
+
+.navbar{
+    padding: 0px; 
+}
+#head{
+    color: white;
+}
+#day_card{
+   background-color: rgb(219, 157, 71); 
+   color: #198D0F;
+}
+#city{
+    display: none;
+}
+.btn{
+    color: white;
+    background-color: #75632c;
+}
+.btn:hover{
+    background-color: #ffc107;
+}
