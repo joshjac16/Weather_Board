@@ -27,4 +27,16 @@ function getCurrentWeather(cityName) {
       console.log(currWeatherContent);
       currCardEl.innerHTML = currWeatherContent;
     });
+  searchBtn.addEventListener("click", function (event) {
+    event.preventDefault();
+    var cityName = LocEL.value;
+    var capCityName = cityName.charAt(0).toUpperCase() + cityName.slice(1);
+    var searchHistory = JSON.parse(localStorage.getItem("Dashboard")) || [];
+    if (cityName) {
+      searchHistory.push(capCityName);
+      localStorage.setItem("Dashboard", JSON.stringify(searchHistory));
+
+      getCurrentWeather(cityName);
+    }
+  });
 }
