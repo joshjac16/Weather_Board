@@ -6,37 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+
     <title>Weather Dashboard</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-light ">
-        <div class="container-fluid bg-primary">
+    <nav class="navbar navbar-light">
+        <div class="container-fluid bg-primary w-100">
             <a class="navbar-brand fs-2 fst-italic" id="head">Weather Dashboard</a>
             <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Enter City" aria-label="Search">
-                <button class="btn btn-outline" type="submit">Search</button>
+                <input class="form-control me-2" id="location" type="search" placeholder="City" aria-label="Search">
+                <button class="btn btn-outline" id="searchBtn" type="submit">Search</button>
+                <button class="btn btn-outline" id="curLoc" type="submit">Current location</button>
             </form>
         </div>
     </nav>
     <div class="row">
-        <aside class="col-4">
-            <button class="btn btn-outline" id="city" type="submit"></button>
+        <aside class="col-4 d-grid gap-2" id="city">
+
         </aside>
-        <div class="card col-6" style="width: 175px;" id="day_card">
-            <div class="card-body">
-                <h5 class="card-title">Hello</h5>
-                <h6 class="card-subtitle mb-2 text-muted"></h6>
+        <div class="card col-6" id="day_card">
+
+            <div class="card-body" id="currCard">
+
 
 
             </div>
         </div>
+        <div class="row align-items-center d-flex flex-wrap " id="FiveDay">
+
+        </div>
+
     </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

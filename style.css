@@ -1,24 +1,30 @@
-:root{
- 
+:root {
+  --text_color: white;
+  --background-color: #ffc107;
+  --green: rgb(83, 165, 72);
 }
 
-.navbar{
-    padding: 0px; 
+.navbar {
+  padding: 0px;
 }
-#head{
-    color: white;
+
+#head {
+  color: white;
 }
-#day_card{
-   background-color: rgb(219, 157, 71); 
-   color: #198D0F;
+#day_card {
+  display: none;
+  background-color: var(--background-color);
+  color: var(text__color);
 }
-#city{
-    display: none;
+#curLoc {
+  margin-left: 10px;
+  margin-right: -10px;
 }
-.btn{
-    color: white;
-    background-color: #75632c;
+
+.btn {
+  color: var(--text_color);
+  background-color: var(--green);
 }
-.btn:hover{
-    background-color: #ffc107;
+.btn:hover {
+  background-color: var(--background-color);
 }
