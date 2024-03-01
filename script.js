@@ -64,3 +64,23 @@ searchBtn.addEventListener("click", function (event) {
     getFiveDayForecast(cityName);
   }
 });
+function displayPrevSearch() {
+  var searchHistory = JSON.parse(localStorage.getItem("Dashboard")) || [];
+  var prevSearch = "";
+  for (let i = 0; i < searchHistory.length; i++) {
+    prevSearch += `<button class="btn btn-outline p-3 previousSearch">${searchHistory[i]}</button>`;
+  }
+  document.getElementById("city").innerHTML = prevSearch;
+  var previousSearchEvtList = document.querySelectorAll(".previousSearch");
+
+  previousSearchEvtList.forEach((button) =>
+    button.addEventListener("click", prevSearchForecast)
+  );
+}
+displayPrevSearch();
+
+function prevSearchForecast(event) {
+  var city = event.target.textContent;
+  getCurrentWeather(city);
+  getFiveDayForecast(city);
+}
