@@ -44,10 +44,10 @@ function getFiveDayForecast(cityName) {
           .format("MM/DD/YYYY   hh:mm:ss A");
         console.log(dateTime);
         fiveDayHTML += `<div class="card" style="width: 175px  ;" ><h5 class="card-title row align-items-center">${dateTime}<img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png" /></h5>
-            <h6 class="card-subtitle mb-2 text-muted">Temp:${data.list[i].main.temp} &deg;F</h6>
-            <p class="card-text">Description: ${data.list[i].weather[0].description}</p>
-            <p class="card-text">Wind Speed: ${data.list[i].wind.speed}</p>
-            <p class="card-text">Humidity: ${data.list[i].main.humidity} &percnt;</p></div>`;
+        <h6 class="card-subtitle mb-2 text-muted">Temp:${data.list[i].main.temp} &deg;F</h6>
+        <p class="card-text">Description: ${data.list[i].weather[0].description}</p>
+        <p class="card-text">Wind Speed: ${data.list[i].wind.speed}</p>
+        <p class="card-text">Humidity: ${data.list[i].main.humidity} &percnt;</p></div>`;
       }
       document.getElementById("FiveDay").innerHTML = fiveDayHTML;
     });
@@ -58,12 +58,18 @@ searchBtn.addEventListener("click", function (event) {
   var capCityName = cityName.charAt(0).toUpperCase() + cityName.slice(1);
   var searchHistory = JSON.parse(localStorage.getItem("Dashboard")) || [];
   if (cityName) {
-    searchHistory.push(capCityName);
-    localStorage.setItem("Dashboard", JSON.stringify(searchHistory));
+    if (searchHistory.includes(capCityName)) {
+    } else {
+      searchHistory.push(capCityName);
+      localStorage.setItem("Dashboard", JSON.stringify(searchHistory));
+    }
+
+    displayPrevSearch();
     getCurrentWeather(cityName);
     getFiveDayForecast(cityName);
   }
 });
+
 function displayPrevSearch() {
   var searchHistory = JSON.parse(localStorage.getItem("Dashboard")) || [];
   var prevSearch = "";
