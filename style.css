@@ -1,11 +1,16 @@
 :root {
   --text_color: white;
-  --background-color: #ffc107;
-  --green: rgb(83, 165, 72);
+  --background-color: #2b8b7f;
+  --btn_color: #809ea1;
+  --body_back: #908670;
+  --hover_btn:#2b8b7f;
 }
-
+body{
+  background-color:var(--body_back)
+}
 .navbar {
   padding: 0px;
+  background-color: #645d4e;
 }
 
 #head {
@@ -13,18 +18,21 @@
 }
 #day_card {
   display: none;
-  background-color: var(--background-color);
+  background-color:var(--body_back);
   color: var(text__color);
+  border:none
 }
-#curLoc {
-  margin-left: 10px;
-  margin-right: -10px;
+#currCard{
+  background-color: var(--background-color);
 }
 
+#FiveDay{
+padding-left: 13px;
+}
 .btn {
   color: var(--text_color);
-  background-color: var(--green);
+  background-color: var(--btn_color);
 }
 .btn:hover {
-  background-color: var(--background-color);
+  background-color: var(--hover_btn);
 }

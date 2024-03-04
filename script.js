@@ -5,6 +5,9 @@ var apiKey = "671e869318c1bfdbdda4a15c1e28d9ac";
 
 var requestURL = `http://api.openweathermap.org/data/2.5/forecast?q={city name}&appid=${apiKey}`;
 
+// The getCurrentWeather() function fetches the api and gets the current weather information of the city which was entered by the client 
+// then displays it as a main card
+
 function getCurrentWeather(cityName) {
   let currentWeatherURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=imperial`;
   fetch(currentWeatherURL)
@@ -28,6 +31,9 @@ function getCurrentWeather(cityName) {
       currCardEl.innerHTML = currWeatherContent;
     });
 }
+// The getFiveDayForecast() function uses the fetched data from the getCurrentWeather() function and also gets a 5-day forecast
+// then displays it as 5 cards  
+
 function getFiveDayForecast(cityName) {
   let FiveDayForecastURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${apiKey}&units=imperial`;
   fetch(FiveDayForecastURL)
@@ -43,7 +49,7 @@ function getFiveDayForecast(cityName) {
           .unix(data.list[i].dt)
           .format("MM/DD/YYYY   hh:mm:ss A");
         console.log(dateTime);
-        fiveDayHTML += `<div class="card" style="width: 175px  ;" ><h5 class="card-title row align-items-center">${dateTime}<img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png" /></h5>
+        fiveDayHTML += `<div class="card" style="width: 175px; background-color:#7fb9b2; margin:20px" ><h5 class="card-title row align-items-center">${dateTime}<img src="https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png" /></h5>
         <h6 class="card-subtitle mb-2 text-muted">Temp:${data.list[i].main.temp} &deg;F</h6>
         <p class="card-text">Description: ${data.list[i].weather[0].description}</p>
         <p class="card-text">Wind Speed: ${data.list[i].wind.speed}</p>
@@ -52,6 +58,9 @@ function getFiveDayForecast(cityName) {
       document.getElementById("FiveDay").innerHTML = fiveDayHTML;
     });
 }
+
+// Adds eventlisteners to the buttons on the browser
+
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
   var cityName = LocEL.value;
@@ -70,11 +79,14 @@ searchBtn.addEventListener("click", function (event) {
   }
 });
 
+// The below function displays the names of the previous searched cities as buttons on the side bar 
+// and once clicked takes shows the current weather and 5 day forecast 
+
 function displayPrevSearch() {
   var searchHistory = JSON.parse(localStorage.getItem("Dashboard")) || [];
   var prevSearch = "";
   for (let i = 0; i < searchHistory.length; i++) {
-    prevSearch += `<button class="btn btn-outline p-3 previousSearch">${searchHistory[i]}</button>`;
+    prevSearch += `<button class="btn btn-default btn-block p-3 previousSearch">${searchHistory[i]}</button>`;
   }
   document.getElementById("city").innerHTML = prevSearch;
   var previousSearchEvtList = document.querySelectorAll(".previousSearch");
@@ -83,7 +95,7 @@ function displayPrevSearch() {
     button.addEventListener("click", prevSearchForecast)
   );
 }
-displayPrevSearch();
+displayPrevSearch(); // has previous searches (if any) displayed on the page on initial call
 
 function prevSearchForecast(event) {
   var city = event.target.textContent;

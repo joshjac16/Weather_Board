@@ -14,7 +14,7 @@
 
 <body>
     <nav class="navbar navbar-light">
-        <div class="container-fluid bg-primary w-100">
+        <div class="container-fluid w-100">
             <a class="navbar-brand fs-2 fst-italic" id="head">Weather Dashboard</a>
             <form class="d-flex">
                 <input class="form-control me-2" id="location" type="search" placeholder="City" aria-label="Search">
@@ -24,18 +24,13 @@
         </div>
     </nav>
     <div class="row">
-        <aside class="col-4 d-grid gap-2" id="city">
+        <aside class="col-4 d-flex flex-column mb-3 gap-2" id="city">
 
         </aside>
-        <div class="card col-6" id="day_card">
+        <div class="card col-8 justify-content-center" id="day_card">
 
-            <div class="card-body" id="currCard">
-
-
-
-            </div>
-        </div>
-        <div class="row align-items-center d-flex flex-wrap " id="FiveDay">
+            <div class="card-body " id="currCard"></div>
+            <div class="row align-items-center d-flex flex-wrap  " id="FiveDay"></div>
 
         </div>
 
