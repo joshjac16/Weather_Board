@@ -28,3 +28,9 @@ HTML/CSS/JavaScript
 Bootstrap
 OpenWeatherMap API
 
+## Usage 
+
+Clone this repository to your local machine. Open the index.html file in your preferred browser. Usage
+
+Upon opening the application, user can type in cities that are in the itinerary for their trip once they hit the search button the current weather 
+and a breif overview of the next 5 days for that city entered. 
