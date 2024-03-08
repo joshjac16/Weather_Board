@@ -36,7 +36,7 @@ Upon opening the application, user can type in cities that are in the itinerary 
 and a breif overview of the next 5 days for that city entered.
 
 Example shown below
-<img src="/images/Screenshot.png" width="500px"/>
+<img src="/images/Screenshot.png" width="1000px"/>
 
 ## Deployed Webpage
 
